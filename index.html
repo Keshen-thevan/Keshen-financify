@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
@@ -42,16 +43,16 @@
         <div class="budget-dashboard">
             <div class="dash-title">Transactions</div>
             <div class="toggle">
-                <div class="tab1 ">Expenses</div>
+                <div class="tab1 active">Expenses</div>
                 <div class="tab2">Income</div>
-                <div class="tab3 active">All</div>
+                <div class="tab3 ">All</div>
             </div>
             <!-- expenses tab -->
             <div id="expense">
                 <ul class="list"></ul>
                 <div class="input">
                     <input type="text" id="expense-title-input" name="title" placeholder="title">
-                    <input type="number" id="expense-amount-input" name="amount" placeholder="$0">
+                    <input type="number" id="expense-amount-input" name="amount" placeholder="R0">
                     <div class="add-expense"><i class="uil uil-plus"></i></div>
                 </div>
             </div>
@@ -60,7 +61,7 @@
                 <ul class="list"></ul>
                 <div class="input">
                     <input type="text" id="income-title-input" name="title" placeholder="title">
-                    <input type="number" id="income-amount-input" name="amount" placeholder="$0">
+                    <input type="number" id="income-amount-input" name="amount" placeholder="R0">
                     <div class="add-income"><i class="uil uil-plus"></i></div>
                 </div>    
             </div>        
@@ -71,7 +72,7 @@
             </div>
         </div>
     </div>
-    <script defer src="./budget.js"></script>
-    <script src="./chart.js"></script>
+    <script  src="./budget.js"></script>
+
 </body>
 </html>

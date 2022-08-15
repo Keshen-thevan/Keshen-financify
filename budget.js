@@ -126,10 +126,11 @@ function deleteOrEdit(event){
     const targetBtn = event.target;
     const entry = targetBtn.parentNode;
 
-    if(targetBtn.id === DELETE){
+    if(entry.id === DELETE){
         deleteEntry(entry)
+        
     }
-    else if(targetBtn.id === EDIT){
+    else if(entry.id === EDIT){
         editEntry(entry)
     }
 }
@@ -139,15 +140,19 @@ function deleteOrEdit(event){
 function deleteEntry(entry){
     ENTRY_LIST.splice(entry.id, 1);
     updateUI()
+    // console.log(entry.id + "deleteEntry")
 }
 
 //edit an entry
 function editEntry(entry){
-     let ENTRY  = ENTRY_LIST[entry.id];
+    console.log(ENTRY_LIST)
+     let ENTRY  = ENTRY_LIST[0];
+     //entry.id is not equal to a number, its supposed to be the number of the entry
 
-    if(ENTRY.type == 'income'){
+    if(ENTRY.type === 'income'){
         incomeAmount.value = ENTRY.amount
         incomeTitle.value = ENTRY.title
+        
     }
     else if(ENTRY.type === "expense"){
         expenseAmount.value = ENTRY.amount
@@ -162,10 +167,10 @@ function updateUI(){
     clearElement( [expenseList, incomeList, allList] )
    
     ENTRY_LIST.forEach((entry,index) => {
-        if(entry.type == "expense"){
+        if(entry.type === "expense"){
             showEntry(expenseList, entry.type, entry.title, entry.amount, index)
         }
-        else if(entry.type == "income"){
+        else if(entry.type === "income"){
             showEntry(incomeList, entry.type, entry.title, entry.amount, index)
         }
         showEntry(allList, entry.type, entry.title, entry.amount, index)
@@ -175,10 +180,10 @@ function updateUI(){
     outcome = calculateTotal("expense", ENTRY_LIST)
     balance =  Math.abs(calculateBalance(income, outcome))
     
-    let sign = (income >= outcome)? '$' : '-$';
+    let sign = (income >= outcome)? 'R' : '-R';
     balanceEl.innerHTML = `<small>${sign}</small>${balance}`
-    incomeTotalEl.innerHTML = `<small>$</small>${income}`
-    outcomeTotalEl.innerHTML = `<small>$</small>${outcome}`
+    incomeTotalEl.innerHTML = `<small>R</small>${income}`
+    outcomeTotalEl.innerHTML = `<small>R</small>${outcome}`
 
     localStorage.setItem("entry_list", JSON.stringify(ENTRY_LIST))
 }
@@ -186,12 +191,13 @@ function updateUI(){
 //creates an entry for a tab
 function showEntry(list, type, title, amount, id){
     const entry =   `<li id = "${id}" class="${type}">
-                        <div class="entry"> ${title}: $${amount}</div>
+                        <div class="entry"> ${title}: R${amount}</div>
                         <div id="edit"><i class="uil uil-edit"></i></div>
                         <div id="delete"><i class="uil uil-trash-alt"></i></div>
                     </li>`;
 
     list.insertAdjacentHTML("afterbegin", entry);
+
 }
 
 //clears an element

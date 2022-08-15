@@ -21,7 +21,3 @@ What I learned:
 
 Challenges:
 - one of the challenges i had was actually just outputting the data, the data was getting saved but the output was not working. It was the bug that i struggled with the longest, but the problem was that ( the querySelector was not assigned to the correct IDs and CLASSES )
-
-Bugs
-- there is currently one bug: on load,  the apps view width is strecthed and show an additional list at the bottom of the screen but after switching tabs it is removed.
-- 
