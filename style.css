@@ -48,7 +48,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .budget-container .app-title{
-    padding-top: 60px;
+    padding-top: 30px;
     padding-bottom: 10px;
     background-color: black;
     text-align: center;
